@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Vedant</title>
+    <style>
+        :root {
+            --bg-color: #000000;
+            --text-color: #ffffff;
+            --accent-color: #ffffff;
+            --card-border: #333333;
+            --muted-text: #888888;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 650px;
+            width: 100%;
+        }
+
+        header {
+            margin-bottom: 50px;
+        }
+
+        .site-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--muted-text);
+            margin: 0 0 12px 0;
+        }
+
+        .name-headline {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin: 0 0 30px 0;
+            letter-spacing: -0.5px;
+        }
+
+        /* Professional Academic Quote Symbols */
+        .academic-quote {
+            position: relative;
+            font-family: "Georgia", serif;
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--text-color);
+            margin: 0 0 50px 0;
+            padding: 0 30px;
+            text-align: center;
+        }
+
+        .academic-quote::before {
+            content: "“";
+            font-size: 3rem;
+            font-family: "Georgia", serif;
+            position: absolute;
+            left: 0;
+            top: -20px;
+            color: var(--muted-text);
+        }
+
+        .academic-quote::after {
+            content: "”";
+            font-size: 3rem;
+            font-family: "Georgia", serif;
+            position: absolute;
+            right: 0;
+            bottom: -50px;
+            color: var(--muted-text);
+        }
+
+        /* Container Content */
+        .content-card {
+            border-top: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+            padding: 40px 0;
+            margin-bottom: 50px;
+        }
+
+        .main-text {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin: 0 0 50px 0; /* Creates explicit two-line height space */
+            text-align: justify;
+        }
+
+        .sub-quote {
+            font-family: "Georgia", serif;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--text-color);
+            text-align: center;
+            display: block;
+            font-weight: bold;
+        }
+
+        /* Image Display */
+        .image-wrapper {
+            width: 100%;
+            margin-bottom: 60px;
+            border: 1px solid var(--card-border);
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Small Custom Trademark Container */
+        footer {
+            width: 100%;
+            text-align: center;
+        }
+
+        .trademark {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--muted-text);
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <p class="site-title">Portfolio</p>
+            <h1 class="name-headline"><b>Vedant</b></h1>
+            <blockquote class="academic-quote">
+                At any rate, I am convinced that He [God] does not play dice.
+            </blockquote>
+        </header>
+
+        <div class="content-card">
+            <p class="main-text">
+                This space is currently being prepared to present a collection of work focused on machine learning and the foundations of quantum mechanics. The objective is not merely to build systems, but to understand the underlying principles that govern complex data and quantum computation. The projects and formulations are being organized now, and the complete notebook of this work will be made available here very soon.
+            </p>
+            <span class="sub-quote">
+                “Asking the right questions until the universe responds.”
+            </span>
+        </div>
+
+        <div class="image-wrapper">
+            <img src="profile.jpg" alt="Portfolio Image">
+        </div>
+
+        <footer>
+            <div class="trademark">
+                ™ VEDANT
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
