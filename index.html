@@ -131,6 +131,113 @@
             color: var(--muted-text);
             text-transform: uppercase;
         }
+
+        /* =======================================
+           SAFE COOKIE POPUP SYSTEM (MULTIPLE OPTIONS)
+           ======================================= */
+        
+        /* Backdrop Overlay */
+        #pf-cookie-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75); /* Dark mask */
+            z-index: 99999;
+            display: none; /* Controlled by JS */
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* The Card Design */
+        #pf-cookie-modal .pf-cookie-content {
+            position: relative;
+            width: 100%;
+            max-width: 440px;
+            background: #111111; 
+            border: 1px solid var(--card-border);
+            padding: 45px 35px 35px 35px;
+            text-align: center;
+            border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Content Text */
+        #pf-cookie-modal .pf-cookie-content p {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            font-weight: 400;
+            line-height: 1.6;
+            margin: 0 0 25px 0;
+            text-align: center;
+        }
+
+        /* Main Action Button (Accept All) */
+        #pf-cookie-modal .pf-cookie-content .btn-accept {
+            background: var(--accent-color);
+            color: var(--bg-color);
+            padding: 12px 0;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            width: 100%;
+            border: 1px solid var(--accent-color);
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-bottom: 20px;
+        }
+
+        #pf-cookie-modal .pf-cookie-content .btn-accept:hover {
+            background: transparent;
+            color: var(--text-color);
+        }
+
+        /* Secondary Link Actions Container */
+        #pf-cookie-modal .pf-cookie-options {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 0 5px;
+        }
+
+        /* Minimal Sub-options Links */
+        #pf-cookie-modal .pf-cookie-options button {
+            background: transparent;
+            border: none;
+            color: var(--muted-text);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            padding: 5px 0;
+            transition: color 0.2s ease;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        #pf-cookie-modal .pf-cookie-options button:hover {
+            color: var(--text-color);
+        }
+
+        /* Clean "X" Close Button */
+        #pf-cookie-modal .pf-cookie-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            color: var(--muted-text);
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s ease;
+        }
+
+        #pf-cookie-modal .pf-cookie-close:hover {
+            color: var(--text-color);
+        }
     </style>
 </head>
 <body>
@@ -166,8 +273,48 @@
 
     </div>
 
+    <!-- Isolated Cookie Modal UI with Multiple Choice Layout -->
+    <div id="pf-cookie-modal">
+        <div class="pf-cookie-content">
+            <span class="pf-cookie-close" onclick="closeCookieModal()">&times;</span>
+            <p>Our website uses cookies to improve your user experience. By continuing to explore this workspace, you agree to our privacy policy.</p>
+            
+            <!-- Primary Action -->
+            <button type="button" class="btn-accept" onclick="closeCookieModal()">Accept All</button>
+            
+            <!-- Secondary Actions -->
+            <div class="pf-cookie-options">
+                <button type="button" onclick="closeCookieModal()">Reject All</button>
+                <button type="button" onclick="closeCookieModal()">Mandatory Only</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Handling Popup Trigger Safely -->
+    <script>
+        const cookieModal = document.getElementById("pf-cookie-modal");
+
+        function showCookieModal() {
+            if (cookieModal) {
+                cookieModal.style.display = "flex";
+            }
+        }
+
+        function closeCookieModal() {
+            if (cookieModal) {
+                cookieModal.style.display = "none";
+            }
+        }
+
+        // Delay popup trigger by 2 seconds (2000ms) after layout renders
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(showCookieModal, 2000);
+        });
+    </script>
+
 </body>
 </html>
+
 <!-- Copyright and Disclaimer Footer -->
 <div class="custom-footer">
     <p class="copyright-text">&copy; 2026 VEDANT. All rights reserved.</p>
