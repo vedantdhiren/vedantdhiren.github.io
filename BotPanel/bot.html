@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odyssey Bot | Stock Market</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+
+    <!-- Main Navigation Header -->
+    <header class="site-header">
+        <div class="brand-container">
+            <img src="icon.png" alt="OdysseyBot Icon" class="bot-icon">
+            <span class="brand-title" style="color: #ffffff;">Odyssey Bot</span>
+        </div>
+        <nav class="nav-actions">
+            <a href="https://discord.com/oauth2/authorize?client_id=1558742527903797249" target="_blank" class="action-btn">INVITE BOT</a>
+            <a href="https://discord.com/channels/@me/1558862062455619708/1560132641439883367" target="_blank" class="action-btn communication-node">SUPPORT SERVER</a>
+        </nav>
+    </header>
+
+    <!-- CNBC Awaaz Inspired Dual-Parallel Ticker Broadcast System -->
+    <div class="broadcast-ticker-system">
+        <!-- Top Parallel Row: Equity Shares -->
+        <div class="ticker-line row-top">
+            <div class="ticker-track" id="equityTrack">
+                <span>LOADING EQUITY LEDGER ARRAYS...</span>
+            </div>
+        </div>
+        <!-- Bottom Parallel Row: Hardware & Property Tickers -->
+        <div class="ticker-line row-bottom">
+            <div class="ticker-track" id="hardwareTrack">
+                <span>LOADING INDUSTRIAL HARDWARE RESUMES...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Subtitle / Quote -->
+    <section class="philosophical-anchor">
+        <p class="primary-axiom">“Stock markets are like women—always commanding, mysterious, unpredictable and volatile.”</p>
+    </section>
+
+    <!-- Main Description Overview -->
+    <main class="system-workspace">
+        <p class="description-node">
+            Odyssey Bot is a feature-rich, asynchronous Discord economy bot designed to provide advanced financial and investment systems for server communities. The application features a robust multi-tiered banking layout, portfolio short-selling logic, active market tracking, and virtual real estate systems. Backed by automated 30-minute database backup operations, the application prevents data corruption automatically while keeping terminal logging optimized and quiet.
+        </p>
+
+        <!-- Main Cover Asset Display Area (1920x1080 Container) -->
+        <div class="media-container">
+            <img src="cover.png" alt="OdysseyBot Cover Asset" class="showcase-cover">
+        </div>
+
+        <!-- Interactive Documentation Dropdown -->
+        <section class="interactive-matrix">
+            <button class="matrix-trigger" onclick="toggleMatrix()">// BOT COMMANDS & MECHANICS DIRECTORY</button>
+            <div class="matrix-content" id="matrixContent">
+                <div class="matrix-grid">
+                    
+                    <div class="matrix-card">
+                        <h3>ECONOMY & TRANSACTION COMMANDS</h3>
+                        <ul>
+                            <li><span>/balance</span> — View your wallet balance, bank deposits, and overall net worth.</li>
+                            <li><span>/market</span> — View the global marketplace dashboard and live asset pricing.</li>
+                            <li><span>/buy_stock</span> — Buy equity shares using your available wallet funds.</li>
+                            <li><span>/sell_stock</span> — Sell your portfolio equity shares for immediate cash.</li>
+                            <li><span>/short_stock</span> — Open a short stock position with a 150% margin requirement.</li>
+                            <li><span>?sync</span> — Admin command to manually synchronize application commands with Discord.</li>
+                        </ul>
+                    </div>
+
+                    <div class="matrix-card">
+                        <h3>BANK TIERS & INTEREST RATES</h3>
+                        <ul>
+                            <li><span>Tier 1–2 (2.0% Interest)</span> — Apex Clearing / Vanguard Trust (100K–250K Balance Caps)</li>
+                            <li><span>Tier 3–4 (2.5% Interest)</span> — Fidelity Capital / Morgan Stanley Private (500K–1M Balance Caps)</li>
+                            <li><span>Tier 5–6 (3.0% Interest)</span> — Goldman Sachs Wealth / JPMorgan Chase (50M–1B Balance Caps)</li>
+                            <li><span>Tier 7–8 (3.5%–4.0% Interest)</span> — BlackRock Asset Management / Federal Reserve Sovereign Reserve (50B–1T Balance Caps)</li>
+                            <li><span>Payout Frequency</span> — Interest amounts are processed automatically once every 24 hours.</li>
+                        </ul>
+                    </div>
+
+                    <div class="matrix-card">
+                        <h3>LOANS & CREDIT PROFILE SYSTEM</h3>
+                        <ul>
+                            <li><span>Loan Balances</span> — Tracks active outstanding debt across your user profile.</li>
+                            <li><span>Interest Accumulation</span> — Adds a 5% compounding interest fee to loans daily.</li>
+                            <li><span>Auto Repayment</span> — Automatically deducts interest payments from bank or wallet caches.</li>
+                            <li><span>Credit Score</span> — Sets a base credit rating starting at 600 points.</li>
+                            <li><span>History Tracking</span> — Monitors successful loan payoffs to dynamically scale user credit values.</li>
+                        </ul>
+                    </div>
+
+                    <div class="matrix-card">
+                        <h3>PASSIVE REVENUE & ASSET DEGRADATION</h3>
+                        <ul>
+                            <li><span>Hardware Investments</span> — Purchase mining hardware options scaling from Antminer S19 Pro to Whatsminer M66 Hydro.</li>
+                            <li><span>Business Holdings</span> — Own corporate property slots ranging from Tata Steel to NVIDIA SuperPOD Compute Clusters.</li>
+                            <li><span>Wear & Tear Factors</span> — Hardware loses 10% efficiency per wear event; businesses drop by 15% efficiency.</li>
+                            <li><span>Overclock Modifiers</span> — Temporarily boots system hardware outputs to a 1.5x passive yield rate.</li>
+                            <li><span>Conglomerate Grouping</span> — Join server conglomerates to apply a flat 1.15x multiplier to all passive yields.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Depository Yield Calculator Component -->
+        <section class="calculator-box">
+            <h3>// DEPOSITORY INTEREST CALCULATOR</h3>
+            <div class="calc-inputs">
+                <div class="input-field">
+                    <label>CAPITAL DEPOSIT ($)</label>
+                    <input type="number" id="calcDeposit" value="500000" oninput="calculateYield()">
+                </div>
+                <div class="input-field">
+                    <label>PROJECTION TIMELINE (DAYS)</label>
+                    <input type="number" id="calcDays" value="30" oninput="calculateYield()">
+                </div>
+            </div>
+            <div class="calc-output">
+                <div>TIER INDEX MATCH: <span id="calcTier">MORGAN STANLEY PRIVATE</span></div>
+                <div>INTEREST RATE: <span id="calcRate">2.5%</span></div>
+                <div class="yield-highlight">ESTIMATED MATURITY WORTH: <span id="calcTotal">$538,041</span></div>
+            </div>
+        </section>
+
+        <p class="secondary-axiom">"Locha, lafda aur jalebi-fafda... isko Gujarati ki life se koi nikaal nahi sakta."</p>
+    </main>
+
+    <!-- Fixed Right Side Trademark Layout Line -->
+    <div class="trademark-axis">
+        <span>™ VEDANT / ODYSSEY BOT DEVELOPMENT</span>
+    </div>
+
+    <!-- Terms, Copyright and Documentation Footer -->
+    <footer class="system-footer">
+        <div class="footer-divider"></div>
+        <div class="footer-meta">
+            <p class="copyright-line">© 2026 VEDANT PATEL. All rights reserved.</p>
+            <p class="intellectual-property-clause">
+                All source modules, passive income systems, asset data structures, mathematical calculations, and interactive user interfaces featured in this repository remain the exclusive intellectual property of the author unless stated otherwise. Unauthorized duplication, redistribution, or commercial use of this codebase without explicit written consent is prohibited. Error logs, application exceptions, and debugging details are handled securely.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script tags are kept at the bottom for engine processing (Logic will be provided in Part 3) -->
+    <script src="script.js"></script>
+</body>
+</html>

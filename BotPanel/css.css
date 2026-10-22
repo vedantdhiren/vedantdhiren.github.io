@@ -1,0 +1,439 @@
+/* --- Global Style Variables & Palette Architecture --- */
+:root {
+    --bg-color: #0d0d0e;
+    --text-primary: #ffffff;      
+    --text-muted: #949499;        
+    --border-color: #222225;
+    --accent-glow: #ffffff;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+/* --- Base Layout System Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    line-height: 1.6;
+    padding: 3rem 6rem;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --- Header & Layout Top Vector Elements --- */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.bot-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    filter: grayscale(100%);
+    border: 1px solid var(--border-color);
+}
+
+.site-header h1 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.action-btn {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.8rem;
+    border: 1px solid var(--text-primary);
+    padding: 0.5rem 1rem;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+    background-color: var(--text-primary);
+    color: var(--bg-color);
+}
+
+.communication-node {
+    color: var(--text-muted);
+    border-color: var(--border-color);
+}
+
+.communication-node:hover {
+    border-color: var(--text-primary);
+}
+
+/* --- Live Status Indicator Layout --- */
+.status-indicator {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.2rem;
+}
+
+.status-indicator .dot {
+    width: 6px;
+    height: 6px;
+    background-color: #2ea44f; 
+    border-radius: 50%;
+    display: inline-block;
+    animation: blink 2s infinite ease-in-out;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+/* --- CNBC Awaaz Inspired Dual-Parallel Ticker Component --- */
+.broadcast-ticker-system {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 4rem;
+    background-color: #0b0b0c;
+    overflow: hidden;
+}
+
+.ticker-line {
+    width: 100%;
+    display: flex;
+    padding: 0.4rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.row-top {
+    border-bottom: 1px solid #1c1c1e;
+}
+
+.ticker-track {
+    display: flex;
+    white-space: nowrap;
+    gap: 3rem;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    will-change: transform;
+}
+
+/* Infinite loop scrolling configurations */
+.row-top .ticker-track {
+    animation: scroll-left 35s linear infinite;
+}
+
+.row-bottom .ticker-track {
+    animation: scroll-right 45s linear infinite;
+}
+
+.ticker-item {
+    color: var(--text-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ticker-item span.pos { color: #2ea44f; font-weight: 600; }
+.ticker-item span.neg { color: #f04747; font-weight: 600; }
+
+@keyframes scroll-left {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes scroll-right {
+    0% { transform: translate3d(-50%, 0, 0); }
+    100% { transform: translate3d(0, 0, 0); }
+}
+
+/* --- Philosophy / Quote Structure Anchor --- */
+.philosophical-anchor {
+    margin-bottom: 4rem;
+}
+
+.primary-axiom {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* --- Core Central Workspace Container --- */
+.system-workspace {
+    max-width: 800px;
+    margin-bottom: 6rem;
+}
+
+.description-node {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    text-align: justify;
+    margin-bottom: 3rem;
+}
+
+/* --- Media Elements Display Grid (16:9 Aspect Structure) --- */
+.media-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #121214;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+.showcase-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    opacity: 0.85;
+    transition: all 0.4s ease;
+}
+
+.showcase-cover:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.secondary-axiom {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 3rem;
+}
+
+/* --- Interactive Code Framework Modules --- */
+.interactive-matrix {
+    border: 1px solid var(--border-color);
+    margin-bottom: 3rem;
+}
+
+.matrix-trigger {
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    text-align: left;
+    padding: 1rem;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: color 0.2s ease;
+}
+
+.matrix-trigger:hover, .matrix-trigger.active {
+    color: var(--text-primary);
+}
+
+.matrix-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-top: 0 solid var(--border-color);
+}
+
+.matrix-content.active {
+    max-height: 2000px;
+    border-top: 1px solid var(--border-color);
+}
+
+.matrix-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    padding: 1.5rem;
+}
+
+.matrix-card h3 {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.matrix-card ul {
+    list-style: none;
+}
+
+.matrix-card li {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+.matrix-card li span {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* --- Depository Calculator Component Layout --- */
+.calculator-box {
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    margin-top: 4rem;
+    background-color: #0b0b0c;
+}
+
+.calculator-box h3 {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.calc-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-field label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+}
+
+.input-field input {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    padding: 0.5rem;
+    font-size: 0.85rem;
+    outline: none;
+}
+
+.input-field input:focus {
+    border-color: var(--text-primary);
+}
+
+.calc-output {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.calc-output span {
+    color: var(--text-primary);
+}
+
+.calc-output .yield-highlight {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: 0.5rem;
+}
+
+/* --- Fixed Linear Right Trademark Axis Signature --- */
+.trademark-axis {
+    position: fixed;
+    right: 2.5rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    transform-origin: right center;
+    white-space: nowrap;
+}
+
+.trademark-axis span {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+/* --- Legal Footer Grid Alignment --- */
+.system-footer {
+    margin-top: auto;
+}
+
+.footer-divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.footer-meta {
+    max-width: 800px;
+}
+
+.copyright-line {
+    font-size: 0.75rem;
+    color: var(--text-primary);
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
+}
+
+.intellectual-property-clause {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-align: justify;
+}
+
+/* --- Responsive Layout Configurations --- */
+@media (max-width: 768px) {
+    body {
+        padding: 2rem;
+    }
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+    .calc-inputs {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .trademark-axis {
+        position: static;
+        transform: none;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        text-align: left;
+    }
+    .matrix-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
